@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import {
   Code,
   FileCode,
-  Typescript,
+  FileType, // Changed from Typescript to FileType
   Github,
   Database,
   Cloud,
@@ -49,7 +49,7 @@ const SkillsSection = () => {
         { name: "React", icon: <Code className="h-5 w-5" /> },
         { name: "Angular", icon: <Code className="h-5 w-5" /> },
         { name: "Next.js", icon: <FileCode className="h-5 w-5" /> },
-        { name: "TypeScript", icon: <Typescript className="h-5 w-5" /> },
+        { name: "TypeScript", icon: <FileType className="h-5 w-5" /> }, // Changed from Typescript to FileType
         { name: "Tailwind CSS", icon: <FileCode className="h-5 w-5" /> },
       ],
     },
