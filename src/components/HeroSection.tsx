@@ -5,6 +5,16 @@ import { Button } from "@/components/ui/button";
 const HeroSection = () => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center pt-16">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 -z-20">
+        <img 
+          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1470&auto=format&fit=crop" 
+          alt="Developer workspace" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-background/90 dark:bg-background/90"></div>
+      </div>
+
       {/* Animated Background Elements */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-portfolioAccent1/20 animate-float blur-3xl"></div>
@@ -14,6 +24,13 @@ const HeroSection = () => {
 
       <div className="section-container">
         <div className="flex flex-col items-center text-center opacity-0 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+          <div className="mb-8 rounded-full overflow-hidden border-4 border-primary w-40 h-40">
+            <img 
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop&crop=face" 
+              alt="Steven Lee" 
+              className="w-full h-full object-cover"
+            />
+          </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
             Steven <span className="animated-gradient-text">Lee</span>
           </h1>

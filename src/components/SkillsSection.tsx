@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import {
   Code,
   FileCode,
-  FileType, // Changed from Typescript to FileType
+  FileType,
   Github,
   Database,
   Cloud,
@@ -49,9 +49,10 @@ const SkillsSection = () => {
         { name: "React", icon: <Code className="h-5 w-5" /> },
         { name: "Angular", icon: <Code className="h-5 w-5" /> },
         { name: "Next.js", icon: <FileCode className="h-5 w-5" /> },
-        { name: "TypeScript", icon: <FileType className="h-5 w-5" /> }, // Changed from Typescript to FileType
+        { name: "TypeScript", icon: <FileType className="h-5 w-5" /> },
         { name: "Tailwind CSS", icon: <FileCode className="h-5 w-5" /> },
       ],
+      image: "https://images.unsplash.com/photo-1498036882173-b4e06c0940f6?q=80&w=300&auto=format&fit=crop&crop=focalpoint"
     },
     {
       name: "Backend",
@@ -63,6 +64,7 @@ const SkillsSection = () => {
         { name: "WebSockets", icon: <Activity className="h-5 w-5" /> },
         { name: "OAuth2", icon: <Lock className="h-5 w-5" /> },
       ],
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=300&auto=format&fit=crop&crop=focalpoint"
     },
     {
       name: "DevOps & Cloud",
@@ -74,6 +76,7 @@ const SkillsSection = () => {
         { name: "Terraform", icon: <Terminal className="h-5 w-5" /> },
         { name: "CI/CD", icon: <Github className="h-5 w-5" /> },
       ],
+      image: "https://images.unsplash.com/photo-1481487196290-c152efe083f5?q=80&w=300&auto=format&fit=crop&crop=focalpoint"
     },
     {
       name: "Database",
@@ -83,6 +86,7 @@ const SkillsSection = () => {
         { name: "MongoDB", icon: <Database className="h-5 w-5" /> },
         { name: "Redis", icon: <Server className="h-5 w-5" /> },
       ],
+      image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=300&auto=format&fit=crop&crop=focalpoint"
     },
   ];
 
@@ -98,10 +102,19 @@ const SkillsSection = () => {
           {skillCategories.map((category, categoryIndex) => (
             <div
               key={category.name}
-              className="glass-panel p-6 card-hover"
+              className="glass-panel p-6 card-hover overflow-hidden"
               style={{ animationDelay: `${categoryIndex * 0.2}s` }}
             >
-              <h3 className="text-xl font-semibold mb-4">{category.name}</h3>
+              <div className="relative h-40 mb-4 overflow-hidden rounded-lg">
+                <img 
+                  src={category.image} 
+                  alt={`${category.name} illustration`} 
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                  <h3 className="text-xl font-semibold mb-3 px-3 text-white">{category.name}</h3>
+                </div>
+              </div>
               <div className="flex flex-wrap gap-3">
                 {category.skills.map((skill) => (
                   <div
