@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const ProjectsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -36,7 +37,7 @@ const ProjectsSection = () => {
       title: "AI-Driven Healthcare Analytics Platform",
       description: "Real-time patient data insights with scalable backend APIs.",
       technologies: ["Angular", ".NET Core", "Azure", "PostgreSQL", "Docker"],
-      imageUrl: "https://placehold.co/600x400/1A1F2C/FFFFFF?text=Healthcare+Analytics",
+      imageUrl: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=600&auto=format&fit=crop",
       links: {
         demo: "#",
         github: "#",
@@ -46,7 +47,7 @@ const ProjectsSection = () => {
       title: "E-commerce with Real-Time Personalization",
       description: "Personalized shopping experience with live product updates.",
       technologies: ["React", "Next.js", "Tailwind", "C#", "Azure"],
-      imageUrl: "https://placehold.co/600x400/1A1F2C/FFFFFF?text=E-commerce",
+      imageUrl: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=600&auto=format&fit=crop",
       links: {
         demo: "#",
         github: "#",
@@ -56,7 +57,7 @@ const ProjectsSection = () => {
       title: "Cloud-Native Fintech Dashboard",
       description: "Fast, low-latency portfolio analytics with serverless backend.",
       technologies: ["Angular", "AWS Lambda", "Terraform"],
-      imageUrl: "https://placehold.co/600x400/1A1F2C/FFFFFF?text=Fintech+Dashboard",
+      imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop",
       links: {
         demo: "#",
         github: "#",
@@ -114,6 +115,14 @@ const ProjectsSection = () => {
               </div>
             </div>
           ))}
+        </div>
+        
+        <div className="flex justify-center mt-12">
+          <Button variant="default" size="lg" asChild>
+            <Link to="/projects">
+              View More Projects <ArrowUpRight className="ml-1 h-4 w-4" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
