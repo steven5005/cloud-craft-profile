@@ -1,7 +1,26 @@
 
 import { ArrowUp } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const Footer = () => {
+  const [showScrollButton, setShowScrollButton] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show button when scrolled more than 200px from top
+      setShowScrollButton(window.scrollY > 200);
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+    
+    // Initial check
+    handleScroll();
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -16,14 +35,16 @@ const Footer = () => {
         </div>
       </div>
       
-      {/* Fixed position button in the bottom right corner */}
-      <button
-        onClick={scrollToTop}
-        className="fixed bottom-8 right-8 p-3 rounded-full bg-secondary hover:bg-secondary/80 shadow-md transition-colors z-10"
-        aria-label="Scroll to top"
-      >
-        <ArrowUp className="h-5 w-5" />
-      </button>
+      {/* Fixed position button in the bottom right corner - only shown when scrolled */}
+      {showScrollButton && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 p-3 rounded-full bg-secondary hover:bg-secondary/80 shadow-md transition-colors z-10"
+          aria-label="Scroll to top"
+        >
+          <ArrowUp className="h-5 w-5" />
+        </button>
+      )}
     </footer>
   );
 };
